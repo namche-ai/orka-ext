@@ -121,7 +121,8 @@ export async function spawnVSCode(workspacePath: string, vsixPath?: string): Pro
 		// Show the activity bar and sidebar
 		"workbench.activityBar.visible": true,
 		"workbench.sideBar.visible": true,
-		"workbench.view.extension.saoudrizwan.claude-dev-ActivityBar.visible": true,
+		// "workbench.view.extension.saoudrizwan.claude-dev-ActivityBar.visible": true,
+		"workbench.view.extension.saoudrizwan.orka-dev-ActivityBar.visible": true,
 		"workbench.view.alwaysShowHeaderActions": true,
 		"workbench.editor.openSideBySideDirection": "right",
 
@@ -145,13 +146,17 @@ export async function spawnVSCode(workspacePath: string, vsixPath?: string): Pro
 	const keybindings = [
 		{
 			key: "alt+c",
-			command: "workbench.view.extension.saoudrizwan.claude-dev-ActivityBar",
-			when: "viewContainer.workbench.view.extension.saoudrizwan.claude-dev-ActivityBar.enabled",
+			// command: "workbench.view.extension.saoudrizwan.claude-dev-ActivityBar",
+			command: "workbench.view.extension.saoudrizwan.orka-dev-ActivityBar",
+			// when: "viewContainer.workbench.view.extension.saoudrizwan.claude-dev-ActivityBar.enabled",
+			when: "viewContainer.workbench.view.extension.saoudrizwan.orka-dev-ActivityBar.enabled",
 		},
 		{
 			key: "alt+shift+c",
-			command: "cline.openInNewTab",
-			when: "viewContainer.workbench.view.extension.saoudrizwan.claude-dev-ActivityBar.enabled",
+			// command: "cline.openInNewTab",
+			command: "orka.openInNewTab",
+			// when: "viewContainer.workbench.view.extension.saoudrizwan.claude-dev-ActivityBar.enabled",
+			when: "viewContainer.workbench.view.extension.saoudrizwan.orka-dev-ActivityBar.enabled",
 		},
 	]
 	fs.writeFileSync(keybindingsPath, JSON.stringify(keybindings, null, 2))
@@ -171,10 +176,12 @@ export async function spawnVSCode(workspacePath: string, vsixPath?: string): Pro
 		workspacePath,
 		// Force the extension to be activated on startup
 		"--start-up-extension",
-		"saoudrizwan.claude-dev",
+		// "saoudrizwan.claude-dev",
+		"saoudrizwan.orka-dev",
 		// Run a command on startup to open Cline
 		"--command",
-		"workbench.view.extension.saoudrizwan.claude-dev-ActivityBar",
+		// "workbench.view.extension.saoudrizwan.claude-dev-ActivityBar",
+		"workbench.view.extension.saoudrizwan.orka-dev-ActivityBar",
 		// Additional flags to help with extension activation
 		"--disable-gpu=false",
 		"--max-memory=4096",
@@ -186,7 +193,8 @@ export async function spawnVSCode(workspacePath: string, vsixPath?: string): Pro
 		// This script will be executed when VS Code starts
 		setTimeout(() => {
 			// Try to open Cline in the sidebar
-			require('vscode').commands.executeCommand('workbench.view.extension.saoudrizwan.claude-dev-ActivityBar');
+			// require('vscode').commands.executeCommand('workbench.view.extension.saoudrizwan.claude-dev-ActivityBar');
+			require('vscode').commands.executeCommand('workbench.view.extension.saoudrizwan.orka-dev-ActivityBar');
 			
 			// Also try to open Cline in a tab as a fallback
 			setTimeout(() => {
@@ -247,7 +255,8 @@ export async function spawnVSCode(workspacePath: string, vsixPath?: string): Pro
 			contributes: {
 				commands: [
 					{
-						command: "cline-activator.activate",
+						// command: "cline-activator.activate",
+						command: "orka-activator.activate",
 						title: "Activate Cline",
 					},
 				],
@@ -267,10 +276,12 @@ export async function spawnVSCode(workspacePath: string, vsixPath?: string): Pro
 				console.log('Cline Activator is now active!');
 				
 				// Register the command to activate Cline
-				let disposable = vscode.commands.registerCommand('cline-activator.activate', async function () {
+				// let disposable = vscode.commands.registerCommand('cline-activator.activate', async function () {
+				let disposable = vscode.commands.registerCommand('orka-activator.activate', async function () {
 					try {
 						// Make sure the Cline extension is activated
-						const extension = vscode.extensions.getExtension('saoudrizwan.claude-dev');
+						// const extension = vscode.extensions.getExtension('saoudrizwan.claude-dev');
+						const extension = vscode.extensions.getExtension('saoudrizwan.orka-dev');
 						if (!extension) {
 							console.error('Cline extension not found');
 							return;
@@ -283,14 +294,15 @@ export async function spawnVSCode(workspacePath: string, vsixPath?: string): Pro
 						
 						// Show the Cline sidebar
 						console.log('Opening Cline sidebar...');
-						await vscode.commands.executeCommand('workbench.view.extension.saoudrizwan.claude-dev-ActivityBar');
-						
+						// await vscode.commands.executeCommand('workbench.view.extension.saoudrizwan.claude-dev-ActivityBar');
+						await vscode.commands.executeCommand('workbench.view.extension.saoudrizwan.orka-dev-ActivityBar');
 						// Wait a moment for the sidebar to initialize
 						await new Promise(resolve => setTimeout(resolve, 2000));
 						
 						// Also open Cline in a tab as a fallback
 						console.log('Opening Cline in a tab...');
-						await vscode.commands.executeCommand('cline.openInNewTab');
+						// await vscode.commands.executeCommand('cline.openInNewTab');
+						await vscode.commands.executeCommand('orka.openInNewTab');
 						
 						// Wait a moment for the tab to initialize
 						await new Promise(resolve => setTimeout(resolve, 2000));
@@ -316,7 +328,8 @@ export async function spawnVSCode(workspacePath: string, vsixPath?: string): Pro
 				
 				// Automatically run the command after a delay
 				setTimeout(() => {
-					vscode.commands.executeCommand('cline-activator.activate');
+					// vscode.commands.executeCommand('cline-activator.activate');
+					vscode.commands.executeCommand('orka-activator.activate');
 				}, 5000);
 			}
 			
@@ -340,7 +353,9 @@ export async function spawnVSCode(workspacePath: string, vsixPath?: string): Pro
 			const vscode = require('vscode');
 			
 			// Execute the cline-activator.activate command
-			vscode.commands.executeCommand('cline-activator.activate');
+			// vscode.commands.executeCommand('cline-activator.activate');
+			vscode.commands.executeCommand('orka-activator.activate');
+
 		`
 		fs.writeFileSync(activationScriptPath, activationScript)
 		console.log(`Created activation script to run in VS Code`)

@@ -32,11 +32,12 @@ const WelcomeView = memo(() => {
 	return (
 		<div className="fixed inset-0 p-0 flex flex-col">
 			<div className="h-full px-5 overflow-auto">
-				<h2>Hi, I'm Cline</h2>
+				{/* <h2>Hi, I'm Cline</h2> */}
+				<h2>Hi, 我是ORKA运营小助手!</h2>
 				<div className="flex justify-center my-5">
 					<ClineLogoWhite className="size-16" />
 				</div>
-				<p>
+				{/* <p>
 					I can do all kinds of tasks thanks to breakthroughs in{" "}
 					<VSCodeLink href="https://www.anthropic.com/claude/sonnet" className="inline">
 						Claude 3.7 Sonnet's
@@ -53,6 +54,18 @@ const WelcomeView = memo(() => {
 
 				<VSCodeButton appearance="primary" onClick={handleLogin} className="w-full mt-1">
 					Get Started for Free
+				</VSCodeButton> */}
+
+				<p>
+					我可以帮您接入公司内部的订单管理系统，一步步完成日常的订单运营工作，包括下单、发货、退货、换货、查询，也可以协助处理本地的excel、word等文件。
+				</p>
+
+				<p className="text-[var(--vscode-descriptionForeground)]">
+					注册一个账号即可开始使用（免费），注意：需要接入公司内部的订单管理系统，并提供AI大模型API Key。
+				</p>
+
+				<VSCodeButton appearance="primary" onClick={handleLogin} className="w-full mt-1">
+					注册登录
 				</VSCodeButton>
 
 				{!showApiOptions && (
@@ -60,7 +73,8 @@ const WelcomeView = memo(() => {
 						appearance="secondary"
 						onClick={() => setShowApiOptions(!showApiOptions)}
 						className="mt-2.5 w-full">
-						Use your own API key
+						{/* Use your own API key */}
+						使用自己的API Key
 					</VSCodeButton>
 				)}
 
@@ -69,7 +83,8 @@ const WelcomeView = memo(() => {
 						<div>
 							<ApiOptions showModelOptions={false} />
 							<VSCodeButton onClick={handleSubmit} disabled={disableLetsGoButton} className="mt-0.75">
-								Let's go!
+								{/* Let's go! */}
+								开始使用
 							</VSCodeButton>
 						</div>
 					)}
