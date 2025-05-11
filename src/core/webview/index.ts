@@ -276,16 +276,14 @@ export class WebviewProvider implements vscode.WebviewViewProvider {
 
 		// Check if local dev server is running.
 		try {
-			const uri = `http://${localServerUrl}`
-			console.warn(`[getHMRHtmlContent] Checking if local dev server is running at ${uri}`)
-			await axios.get(uri)
+			// const uri = `http://${localServerUrl}`
+			// console.warn(`[getHMRHtmlContent] Checking if local dev server is running at ${uri}`)
+			await axios.get(`http://${localServerUrl}`)
 		} catch (error) {
 			vscode.window.showErrorMessage(
 				"Orka: Local webview dev server is not running, HMR will not work. Please run 'npm run dev:webview' before launching the extension to enable HMR. Using bundled assets.",
 			)
-
-			console.error("`[getHMRHtmlContent]err:", error)
-
+			// console.error("`[getHMRHtmlContent]err:", error)
 			return this.getHtmlContent(webview)
 		}
 
