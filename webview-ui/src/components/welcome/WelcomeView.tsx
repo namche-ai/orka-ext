@@ -4,7 +4,7 @@ import { useExtensionState } from "@/context/ExtensionStateContext"
 import { validateApiConfiguration } from "@/utils/validate"
 import { vscode } from "@/utils/vscode"
 import ApiOptions from "@/components/settings/ApiOptions"
-import ClineLogoWhite from "@/assets/ClineLogoWhite"
+import ClineLogoVariable from "@/assets/ClineLogoVariable"
 import { AccountServiceClient } from "@/services/grpc-client"
 import { EmptyRequest } from "@shared/proto/common"
 
@@ -34,9 +34,9 @@ const WelcomeView = memo(() => {
 			<div className="h-full px-5 overflow-auto">
 				{/* <h2>Hi, I'm Cline</h2> */}
 				<h2>Hi~, 我是ORKA运营小助手!</h2>
-				{/* <div className="flex justify-center my-5">
-					<ClineLogoWhite className="size-16" />
-				</div> */}
+				<div className="flex justify-center my-5">
+					<ClineLogoVariable className="size-16" />
+				</div>
 				{/* <p>
 					I can do all kinds of tasks thanks to breakthroughs in{" "}
 					<VSCodeLink href="https://www.anthropic.com/claude/sonnet" className="inline">
