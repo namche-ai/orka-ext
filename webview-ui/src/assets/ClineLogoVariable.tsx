@@ -22,6 +22,8 @@ const ClineLogoVariable = (props: SVGProps<SVGSVGElement>) => (
 			backgroundColor: "transparent",
 		}}
 		{...props}>
+		{/* 圆形背景 */}
+		<ellipse cx="150" cy="150" rx="140" ry="140" fill="var(--vscode-button-hoverBackground)" opacity="0.15" />
 		<g transform="translate(0,300) scale(0.1,-0.1)" fill="var(--vscode-editor-foreground)" stroke="none">
 			<path
 				d="M956 2326 c-44 -12 -76 -36 -76 -57 0 -3 24 -27 53 -52 29 -25 65

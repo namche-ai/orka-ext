@@ -9,6 +9,8 @@ const ClineLogoWhite = (props: SVGProps<SVGSVGElement>) => (
 		preserveAspectRatio="xMidYMid meet"
 		fill="none"
 		{...props}>
+		{/* 圆形背景 */}
+		<ellipse cx="150" cy="150" rx="140" ry="140" fill="#f0f0f0" opacity="0.3" />
 		<g transform="translate(0,300) scale(0.1,-0.1)" fill="white" stroke="none">
 			<path
 				d="M956 2326 c-44 -12 -76 -36 -76 -57 0 -3 24 -27 53 -52 29 -25 65
