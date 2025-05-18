@@ -2,6 +2,7 @@ import * as vscode from "vscode"
 import crypto from "crypto"
 import { Controller } from "../index"
 import { storeSecret } from "../../storage/state"
+import { EmptyRequest, String } from "../../../shared/proto/common"
 
 /**
  * Handles the user clicking the login link in the UI.
@@ -11,7 +12,7 @@ import { storeSecret } from "../../storage/state"
  * @param controller The controller instance.
  * @returns The login URL as a string.
  */
-export async function accountLoginClicked(controller: Controller): Promise<String> {
+export async function accountLoginClicked(controller: Controller, unused: EmptyRequest): Promise<String> {
 	// Generate nonce for state validation
 	const nonce = crypto.randomBytes(32).toString("hex")
 	await storeSecret(controller.context, "authNonce", nonce)
@@ -26,6 +27,8 @@ export async function accountLoginClicked(controller: Controller): Promise<Strin
 		// `https://app.cline.bot/auth?state=${encodeURIComponent(nonce)}&callback_url=${encodeURIComponent(`${uriScheme || "vscode"}://saoudrizwan.claude-dev/auth`)}`,
 		`https://app.cline.bot/auth?state=${encodeURIComponent(nonce)}&callback_url=${encodeURIComponent(`${uriScheme || "vscode"}://saoudrizwan.orka-dev/auth`)}`,
 	)
-	vscode.env.openExternal(authUrl)
-	return authUrl.toString()
+	await vscode.env.openExternal(authUrl)
+	return {
+		value: authUrl.toString(),
+	}
 }

@@ -1,5 +1,53 @@
 # Changelog
 
+## [3.16.1]
+
+-   Add Enable auto approve toggle switch, allowing users to easily turn auto-approve functionality on or off without losing their action settings
+-   Improve Gemini retry handling with better UI feedback, showing retry progress during API request attempts
+-   Fix memory leak issue that could occur during long sessions with multiple tasks
+-   Improve UI for Gemini model retry attempts with clearer status updates
+-   Fix quick actions functionality in auto-approve settings
+-   Update UI styling for auto-approve menu items to conserve space
+
+## [3.16.0]
+
+-   Add new workflow feature allowing users to create and manage workflow files that can be injected into conversations via slash commands
+-   Add collapsible recent task list, allowing users to hide their task history when sharing their screen (Thanks @cosmix!)
+-   Add global endpoint option for Vertex AI users, providing higher availability and reducing 429 errors (Thanks @soniqua!)
+-   Add detection for new users to display special components and guidance
+-   Add Tailwind CSS IntelliSense to the recommended extensions list
+-   Fix eternal loading states when the last message is a checkpoint (Thanks @BarreiroT!)
+-   Improve settings organization by migrating VSCode Advanced settings to Settings Webview
+
+## [3.15.5]
+
+-   Fix inefficient memory management in the task timeline
+-   Fix Gemini rate limitation response not being handled properly (Thanks @BarreiroT!)
+
+## [3.15.4]
+
+-   Add gemini model back to vertex provider
+-   Add gemini telemetry
+-   Add filtering for tasks tied to the current workspace
+
+## [3.15.3]
+
+-   Add Fireworks API Provider
+-   Fix minor visual issues with auto-approve menu
+-   Fix one instance of terminal not getting output
+-   Fix 'Chrome was launched but debug port is not responding' error
+
+## [3.15.2]
+
+-   Added details to auto approve menu and more sensible default controls
+-   Add detailed configuration options for LiteLLM provider
+-   Add webview telemetry for users who have opted in to telemetry
+-   Update Gemini in OpenRouter/Cline providers to use implicit caching
+-   Fix freezing issues during rendering of large streaming text
+-   Fix grey screen webview crashes by releasing memory after every diff edit
+-   Fix breaking out of diff auto-scroll
+-   Fix IME composition Enter auto‑sending edited message
+
 ## [3.15.1]
 
 -   Fix bug where PowerShell commands weren't given enough time before giving up and showing an error
