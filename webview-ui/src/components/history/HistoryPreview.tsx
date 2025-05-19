@@ -91,7 +91,8 @@ const HistoryPreview = ({ showHistoryView }: HistoryPreviewProps) => {
 						fontSize: "0.85em",
 						textTransform: "uppercase",
 					}}>
-					Recent Tasks
+					{/* Recent Tasks */}
+					历史任务
 				</span>
 			</div>
 

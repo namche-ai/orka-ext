@@ -1606,11 +1606,13 @@ const ChatTextArea = forwardRef<HTMLTextAreaElement, ChatTextAreaProps>(
 								height: "100%",
 								zIndex: 6,
 							}}>
-							<Tooltip tipText="Add Context" style={{ left: 0 }}>
+							{/* <Tooltip tipText="Add Context" style={{ left: 0 }}> */}
+							<Tooltip tipText="添加上下文" style={{ left: 0 }}>
 								<VSCodeButton
 									data-testid="context-button"
 									appearance="icon"
-									aria-label="Add Context"
+									// aria-label="Add Context"
+									aria-label="添加上下文"
 									onClick={handleContextButtonClick}
 									style={{ padding: "0px 0px", height: "20px" }}>
 									<ButtonContainer>
@@ -1621,11 +1623,13 @@ const ChatTextArea = forwardRef<HTMLTextAreaElement, ChatTextAreaProps>(
 								</VSCodeButton>
 							</Tooltip>
 
-							<Tooltip tipText="Add Images">
+							{/* <Tooltip tipText="Add Images"> */}
+							<Tooltip tipText="添加图片">
 								<VSCodeButton
 									data-testid="images-button"
 									appearance="icon"
-									aria-label="Add Images"
+									// aria-label="Add Images"
+									aria-label="添加图片"
 									disabled={shouldDisableImages}
 									onClick={() => {
 										if (!shouldDisableImages) {
@@ -1649,7 +1653,8 @@ const ChatTextArea = forwardRef<HTMLTextAreaElement, ChatTextAreaProps>(
 										role="button"
 										isActive={showModelSelector}
 										disabled={false}
-										title="Select Model / API Provider"
+										// title="Select Model / API Provider"
+										title="选择模型 / API 提供商"
 										onClick={handleModelButtonClick}
 										tabIndex={0}>
 										<ModelButtonContent>{modelDisplayName}</ModelButtonContent>

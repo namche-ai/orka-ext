@@ -66,63 +66,63 @@
 		"commands": [
 			{
 				"command": "orka.plusButtonClicked",
-				"title": "New Task",
+				"title": "新的任务",
 				"icon": "$(add)"
 			},
 			{
 				"command": "orka.mcpButtonClicked",
-				"title": "MCP Servers",
+				"title": "MCP 服务器",
 				"icon": "$(server)"
 			},
 			{
 				"command": "orka.historyButtonClicked",
-				"title": "History",
+				"title": "历史记录",
 				"icon": "$(history)"
 			},
 			{
 				"command": "orka.popoutButtonClicked",
-				"title": "Open in Editor",
+				"title": "在编辑器中打开",
 				"icon": "$(link-external)"
 			},
 			{
 				"command": "orka.accountButtonClicked",
-				"title": "Account",
+				"title": "账户",
 				"icon": "$(account)"
 			},
 			{
 				"command": "orka.settingsButtonClicked",
-				"title": "Settings",
+				"title": "设置",
 				"icon": "$(settings-gear)"
 			},
 			{
 				"command": "orka.openInNewTab",
-				"title": "Open In New Tab",
+				"title": "在新标签中打开",
 				"category": "Orka"
 			},
 			{
 				"command": "orka.dev.createTestTasks",
-				"title": "Create Test Tasks",
+				"title": "创建测试任务",
 				"category": "Orka",
 				"when": "orka.isDevMode"
 			},
 			{
 				"command": "orka.addToChat",
-				"title": "Add to Orka",
+				"title": "添加到ORKA",
 				"category": "Orka"
 			},
 			{
 				"command": "orka.addTerminalOutputToChat",
-				"title": "Add to Orka",
+				"title": "添加到ORKA",
 				"category": "Orka"
 			},
 			{
 				"command": "orka.focusChatInput",
-				"title": "Jump to Chat Input",
+				"title": "跳到聊天输入框",
 				"category": "Orka"
 			},
 			{
 				"command": "orka.generateGitCommitMessage",
-				"title": "Generate Commit Message with Orka",
+				"title": "使用ORKA生成提交信息",
 				"category": "Orka",
 				"icon": "$(robot)"
 			}
